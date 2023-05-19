@@ -170,7 +170,7 @@ main() {
     ${a_attachment_type:+--form-string "attachment_type=$a_attachment_type"} \
     ${a_device:+--form-string "device=$a_device"} \
     ${a_html:+--form-string "html=$a_html"} \
-    ${a_priorit:y+--form-string "priority=$a_priority"} \
+    ${a_priority:+--form-string "priority=$a_priority"} \
     ${a_sound:+--form-string "sound=$a_sound"} \
     ${a_timestamp:+--form-string "timestamp=$a_timestamp"} \
     ${a_title:+--form-string "title=$a_title"} \
