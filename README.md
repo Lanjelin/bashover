@@ -7,7 +7,7 @@ Every argument for [pushover](https://pushover.net/api) available directly from 
 
 `./bashover.sh -t "token" -u "user" -m "Here is the latest screenshot" --title "Screenshot" --attachment ~/screenshot.png --priority "1" --sound "tugboat" -v`
 
-`./bashover.sh -c ~/.conf/bashover/server.conf --attachment ~/temperatures.png -m "High temperature on drive 1" --title "Warning: temp`
+`./bashover.sh -c ~/.conf/bashover/server.conf --attachment ~/temperatures.png -m "High temperature on drive 1" --title "Warning: high temp"`
 
 ## Config file
 The script creates a defaul config.file at `~/.config/bashover/default.conf` where default values for all arguments can be stored.  
