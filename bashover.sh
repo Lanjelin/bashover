@@ -2,7 +2,6 @@
 
 readonly config="$HOME/.config/bashover/default.conf"
 readonly pushover_url="https://api.pushover.net/1/messages.json"
-readonly valid_args=$(getopt -o t:u:m:ivc: --long token:,user:,message:,attachment:,attachment-base64:,attachment-type:,device:,html:,priority:,sound:,timestamp:,title:,ttl:,url:,url-title:,ignore-defaults,config: -- "$@")
 
 make_config () {
   echo token='""' >> "$1"
@@ -42,85 +41,89 @@ parse_config () {
 }
 
 parse_arguments() {
-  eval set -- "$valid_args"
   while [ : ]; do
     case "$1" in
       -t | --token)
         a_token="$2"
-        shift 2
+        shift
         ;;
       -u | --user)
         a_user="$2"
-        shift 2
+        shift
         ;;
       -m | --message)
         a_message="$2"
-        shift 2
+        shift
         ;;
       --attachment)
         a_attachment="$2"
-        shift 2
+        shift
         ;;
       --attachment-base64)
         a_attachment_base64="$2"
-        shift 2
+        shift
         ;;
       --attachment-type)
         a_attachment_type="$2"
-        shift 2
+        shift
         ;;
       --device)
         a_device="$2"
-        shift 2
+        shift
         ;;
       --html)
         a_html="$2"
-        shift 2
+        shift
         ;;
       --priority)
         a_priority="$2"
-        shift 2
+        shift
         ;;
       --sound)
         a_sound="$2"
-        shift 2
+        shift
         ;;
       --timestamp)
         a_timestamp="$2"
-        shift 2
+        shift
         ;;
       --title)
         a_title="$2"
-        shift 2
+        shift
         ;;
       --ttl)
         a_ttl="$2"
-        shift 2
+        shift
         ;;
       --url)
         a_url="$2"
-        shift 2
+        shift
         ;;
       --url-title)
         a_url_title="$2"
-        shift 2
+        shift
         ;;
       -i | --ignore-defaults)
         a_ignore_defaults=True
-        shift
         ;;
       -v)
         a_verbose=True
-        shift
         ;;
       -c | --config)
         a_config="$2"
-        shift 2
+        shift 
         ;;
-      --) shift;
+      --)
+        shift
         break
         ;;
+      -?*)
+        printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+        ;;
+      *)
+        break
     esac
+    shift
   done
 }
 
