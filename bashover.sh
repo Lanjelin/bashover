@@ -134,7 +134,7 @@ main() {
     make_config $config
   fi
 
-  parse_arguments $@
+  parse_arguments "$@"
 
   if [[ -n $a_config ]]; then
     if [ ! -f "$a_config" ]; then
@@ -189,4 +189,4 @@ main() {
   exit 0;
 }
 
-main $@
+main "$@"
