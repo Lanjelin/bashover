@@ -39,3 +39,5 @@ Additional config files can be used, and parsed using the `-c` or `--config` arg
  - `--ttl` - a number of seconds that the message will live, before being deleted automatically ([documentation](https://pushover.net/api#ttl))
  - `--url` - a supplementary URL to show with your message ([documentation](https://pushover.net/api#urls))
  - `--url-title` - a title for the URL specified as the `url` parameter, otherwise just the URL is shown ([documentation](https://pushover.net/api#urls))
+ - '--retry' - specifies how often (in seconds) the Pushover servers will send the same notification to the user ([documentation](https://pushover.net/api#priority))
+ - '--expire' - specifies how many seconds your notification will continue to be retried for (every retry seconds) ([documentation](https://pushover.net/api#priority))
