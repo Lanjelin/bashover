@@ -19,6 +19,8 @@ make_config () {
   echo ttl='""' >> "$1"
   echo url='""' >> "$1"
   echo url_title='""' >> "$1"
+  echo retry='""' >> "$1"
+  echo expire='""' >> "$1"
 }
 
 parse_config () {
@@ -38,6 +40,8 @@ parse_config () {
   a_ttl="${a_ttl:-${ttl}}"
   a_url="${a_url:-${url}}"
   a_url_title="${a_url_title:-${url_title}}"
+  a_retry="${a_retry:-${retry}}"
+  a_expire"${a_expire:-${expire}}"
 }
 
 parse_arguments() {
@@ -103,6 +107,14 @@ parse_arguments() {
         a_url_title="$2"
         shift
         ;;
+      --retry)
+        a_retry="$2"
+        shift
+        ;;
+      -expire)
+        a_expire="$2"
+        shift
+        ;;
       -i | --ignore-defaults)
         a_ignore_defaults=True
         ;;
@@ -111,7 +123,7 @@ parse_arguments() {
         ;;
       -c | --config)
         a_config="$2"
-        shift 
+        shift
         ;;
       --)
         shift
@@ -180,6 +192,8 @@ main() {
     ${a_ttl:+--form-string "ttl=$a_ttl"} \
     ${a_url:+--form-string "url=$a_url"} \
     ${a_url_title:+--form-string "url_title=$a_url_title"} \
+    ${a_retry:+--form-string "retry=$a_retry"} \
+    ${a_expire:+--form-string "expire=$a_expire"} \
     $pushover_url`
 
   if [ $a_verbose ]; then
