@@ -41,7 +41,7 @@ parse_config () {
   a_url="${a_url:-${url}}"
   a_url_title="${a_url_title:-${url_title}}"
   a_retry="${a_retry:-${retry}}"
-  a_expire"${a_expire:-${expire}}"
+  a_expire="${a_expire:-${expire}}"
 }
 
 parse_arguments() {
@@ -111,7 +111,7 @@ parse_arguments() {
         a_retry="$2"
         shift
         ;;
-      -expire)
+      --expire)
         a_expire="$2"
         shift
         ;;
