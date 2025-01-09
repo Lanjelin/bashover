@@ -43,7 +43,7 @@ parse_config () {
   a_url_title="${a_url_title:-${url_title}}"
   a_retry="${a_retry:-${retry}}"
   a_expire="${a_expire:-${expire}}"
-  a_callback="${a_expire:-${callback}}"
+  a_callback="${a_callback:-${callback}}"
 }
 
 parse_arguments() {
@@ -200,7 +200,7 @@ main() {
     ${a_url_title:+--form-string "url_title=$a_url_title"} \
     ${a_retry:+--form-string "retry=$a_retry"} \
     ${a_expire:+--form-string "expire=$a_expire"} \
-    ${a_expire:+--form-string "expire=$a_callback"} \	
+    ${a_callback:+--form-string "expire=$a_callback"} \	
     $pushover_url`
 
   if [ $a_verbose ]; then
