@@ -21,6 +21,7 @@ make_config () {
   echo url_title='""' >> "$1"
   echo retry='""' >> "$1"
   echo expire='""' >> "$1"
+  echo callback='""' >> "$1"
 }
 
 parse_config () {
@@ -42,6 +43,7 @@ parse_config () {
   a_url_title="${a_url_title:-${url_title}}"
   a_retry="${a_retry:-${retry}}"
   a_expire="${a_expire:-${expire}}"
+  a_callback="${a_expire:-${callback}}"
 }
 
 parse_arguments() {
@@ -115,6 +117,10 @@ parse_arguments() {
         a_expire="$2"
         shift
         ;;
+      --callback)
+        a_callback="$2"
+        shift
+        ;;		
       -i | --ignore-defaults)
         a_ignore_defaults=True
         ;;
@@ -194,6 +200,7 @@ main() {
     ${a_url_title:+--form-string "url_title=$a_url_title"} \
     ${a_retry:+--form-string "retry=$a_retry"} \
     ${a_expire:+--form-string "expire=$a_expire"} \
+    ${a_expire:+--form-string "expire=$a_callback"} \	
     $pushover_url`
 
   if [ $a_verbose ]; then
